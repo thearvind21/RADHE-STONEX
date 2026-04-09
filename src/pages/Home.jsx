@@ -143,10 +143,19 @@ export default function Home() {
               transition={{ duration: 0.8, delay: idx * 0.2 }}
               className={`group relative overflow-hidden rounded-lg aspect-[3/4] ${item.offset ? 'lg:-translate-y-12' : ''}`}
             >
-              <img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt={item.title} src={item.img} />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform">
-                <div className="bg-surface-container/60 backdrop-blur-xl p-6 sm:p-8 border border-outline-variant/10">
+              <img 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 brightness-95 contrast-105" 
+                alt={item.title} 
+                src={item.img} 
+              />
+              {/* Spotlight Effect (Top) */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent z-10 pointer-events-none"></div>
+              
+              {/* Depth Gradient (Bottom) */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-10"></div>
+              
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform z-20">
+                <div className="bg-surface-container/60 backdrop-blur-xl p-6 sm:p-8 border border-outline-variant/20">
                   <h3 className="font-headline text-2xl sm:text-3xl text-on-surface mb-2">{item.title}</h3>
                   <p className="text-on-surface-variant text-xs sm:text-sm mb-4 sm:mb-6 font-light">{item.desc}</p>
                   <Link className="text-primary font-label text-[10px] tracking-[0.2em] uppercase flex items-center gap-2 group-hover:gap-4 transition-all" to="/products">
