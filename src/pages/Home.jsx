@@ -123,19 +123,22 @@ export default function Home() {
               title: "Italian Marble",
               desc: "Directly sourced from the heart of Carrara and Tuscany.",
               img: italianMarbleImg,
-              offset: false
+              offset: false,
+              isPremiumAsset: true
             },
             {
               title: "Imported Marble",
               desc: "Global treasures from Brazil, Spain, and Turkey.",
               img: importedMarbleImg,
-              offset: true
+              offset: true,
+              isPremiumAsset: true
             },
             {
               title: "Granite",
               desc: "The pinnacle of strength and industrial elegance.",
-              img: graniteImg,
-              offset: false
+              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDe7vFAqsABvQmNjTF8N_vWC7g2M1na4wahAvKqAyOfuI2urxSQ1b678gz6AzM9GCAov5RbPisNkAexWjNmCJBPUkXBKgKW7pKGB-dM2LWPcYtsZaLIpJGB3D8BWJa1HLl8VpWFqUe3u3QrG2Pu0vMwznmpGBcQtRcR7B55e70djeDLDIJX0t28N4lD4CyGQjlnB0IPXgxqOPwjMgbjTOMxsmnWnCsEQRRxDzAAo9m3MGitUsh39xfCjoXAQkOVLDmy2Kh5x4kkXoAI",
+              offset: false,
+              isPremiumAsset: false
             }
           ].map((item, idx) => (
             <motion.div
@@ -146,17 +149,25 @@ export default function Home() {
               transition={{ duration: 0.8, delay: idx * 0.2 }}
               className={`group relative overflow-hidden rounded-lg aspect-[3/4] ${item.offset ? 'lg:-translate-y-12' : ''}`}
             >
-              {/* Layer 1: Premium Photographic Asset */}
+              {/* Layer 1: Photographic Asset */}
               <img 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                 alt={item.title} 
                 src={item.img} 
               />
               
-              {/* Layer 2: Natural Depth Gradient (Bottom) */}
+              {/* Layer 2: Legacy Lighting (Only for non-premium assets like the original Granite reference) */}
+              {!item.isPremiumAsset && (
+                <>
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.2)_0%,_transparent_65%)] mix-blend-soft-light z-10 pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent mix-blend-soft-light z-10 pointer-events-none"></div>
+                </>
+              )}
+
+              {/* Layer 3: Natural Depth Gradient (Bottom) */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-10"></div>
               
-              {/* Layer 3: Content Box */}
+              {/* Layer 4: Content Box */}
               <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform z-20">
                 <div className="bg-surface-container/60 backdrop-blur-xl p-6 sm:p-8 border border-outline-variant/20">
                   <h3 className="font-headline text-2xl sm:text-3xl text-on-surface mb-2">{item.title}</h3>
