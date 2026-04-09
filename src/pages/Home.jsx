@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
 import { useNavigate, Link } from 'react-router-dom';
 import heroImage from "../assets/hero-marble.jpg";
+import italianMarbleImg from "../assets/collections/italian-marble-premium.png";
+import importedMarbleImg from "../assets/collections/imported-marble-premium.png";
+import graniteImg from "../assets/collections/granite-premium.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -119,19 +122,19 @@ export default function Home() {
             {
               title: "Italian Marble",
               desc: "Directly sourced from the heart of Carrara and Tuscany.",
-              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDM7bN9-kODpul6rGaD8hdjvtiCf74A1kL78Jd6xZcCSgyI3idC9Qr58p_MAJizGwqTeFcPdVhzOd0BbzyBTYy5YatsKm2stncycepTkb7o7rnwTMhWgCGx0RJXw1eiePSENHRqFMyiADcN2cEKDYwRii-EGh74JZ7XtEHL_lqenjCGVSDSXkVnqwRZLRp31I0YaEv7zzAIwO5CXuGoCltpb-cKRx85lsb3_XMvuJJH1EAbrYbWk635qWhuwk2YKRTYNfqRiGfV1PZE",
+              img: italianMarbleImg,
               offset: false
             },
             {
               title: "Imported Marble",
               desc: "Global treasures from Brazil, Spain, and Turkey.",
-              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDE79SYmdIuqzWRyzhJyjSH8HUf-UolmQm4CNvcPBP0KB_xrQUgghzZojDmQFvr7-3_G4hUEe2Jib_kcVtxqE1ZOlr4IraUq_IFbv2B58EGRWjcl4RVrNf6Kc5NvSpOpJo6ayD4QUvGY2CMlF5cu75uqOSEKYa4VHitk6p3oYjt4to38bx01dKnmk0rqWrKEyKdBI9G9PpCfp3QbTdaj_AunEAPqUGkYakBNBOC3k9Sdfg3WaHqI8CDSddoldHnwZz_r8hudE3q0cRS",
+              img: importedMarbleImg,
               offset: true
             },
             {
               title: "Granite",
               desc: "The pinnacle of strength and industrial elegance.",
-              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDe7vFAqsABvQmNjTF8N_vWC7g2M1na4wahAvKqAyOfuI2urxSQ1b678gz6AzM9GCAov5RbPisNkAexWjNmCJBPUkXBKgKW7pKGB-dM2LWPcYtsZaLIpJGB3D8BWJa1HLl8VpWFqUe3u3QrG2Pu0vMwznmpGBcQtRcR7B55e70djeDLDIJX0t28N4lD4CyGQjlnB0IPXgxqOPwjMgbjTOMxsmnWnCsEQRRxDzAAo9m3MGitUsh39xfCjoXAQkOVLDmy2Kh5x4kkXoAI",
+              img: graniteImg,
               offset: false
             }
           ].map((item, idx) => (
@@ -143,17 +146,17 @@ export default function Home() {
               transition={{ duration: 0.8, delay: idx * 0.2 }}
               className={`group relative overflow-hidden rounded-lg aspect-[3/4] ${item.offset ? 'lg:-translate-y-12' : ''}`}
             >
+              {/* Layer 1: Premium Photographic Asset */}
               <img 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 brightness-95 contrast-105" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                 alt={item.title} 
                 src={item.img} 
               />
-              {/* Spotlight Effect (Top) */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent z-10 pointer-events-none"></div>
               
-              {/* Depth Gradient (Bottom) */}
+              {/* Layer 2: Natural Depth Gradient (Bottom) */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-10"></div>
               
+              {/* Layer 3: Content Box */}
               <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform z-20">
                 <div className="bg-surface-container/60 backdrop-blur-xl p-6 sm:p-8 border border-outline-variant/20">
                   <h3 className="font-headline text-2xl sm:text-3xl text-on-surface mb-2">{item.title}</h3>
