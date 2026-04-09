@@ -7,7 +7,7 @@ const fadeUp = {
 
 export default function Contact() {
   return (
-    <main className="pt-0 pb-24 md:pb-32 overflow-hidden">
+    <main className="pb-16 md:pb-32 overflow-hidden">
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[530px] flex items-center justify-center overflow-hidden px-6">
         <div className="absolute inset-0 z-0">
@@ -30,7 +30,7 @@ export default function Contact() {
       </section>
 
       {/* Contact & Inquiry Content */}
-      <section className="max-w-[1440px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mt-8">
+      <section className="max-w-[1440px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mt-8">
         {/* Left: Inquiry Form */}
         <motion.div 
           initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}

@@ -7,7 +7,7 @@ const fadeUp = {
 
 export default function Gallery() {
   return (
-    <main className="pt-0 pb-24 md:pb-32 overflow-hidden">
+    <main className="pb-16 md:pb-32 overflow-hidden">
       {/* Hero Section */}
       <section className="relative h-[600px] md:h-[795px] flex items-center justify-center overflow-hidden px-6">
         <div className="absolute inset-0 z-0">
@@ -38,10 +38,10 @@ export default function Gallery() {
       </section>
 
       {/* Residential Masterpieces */}
-      <section className="py-20 md:py-32 px-6 md:px-24 bg-surface max-w-[1440px] mx-auto">
+      <section className="py-16 px-4 md:py-32 md:px-24 bg-surface max-w-[1440px] mx-auto">
         <motion.div 
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-          className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 gap-8"
+          className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-24 gap-8"
         >
           <div className="max-w-2xl">
             <span className="font-label text-primary uppercase tracking-widest text-xs">Section 01 / Residential</span>

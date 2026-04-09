@@ -8,9 +8,9 @@ const fadeUp = {
 
 export default function About() {
   return (
-    <main className="pt-0 overflow-hidden">
+    <main className="overflow-hidden">
       {/* Hero: Our Heritage */}
-      <section className="relative h-[600px] md:h-[751px] flex flex-col justify-end px-6 md:px-8 pb-16 overflow-hidden">
+      <section className="relative h-[600px] md:h-[751px] flex flex-col justify-end px-4 md:px-8 pb-16 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             alt="Grand marble quarry" 
@@ -34,7 +34,7 @@ export default function About() {
       </section>
 
       {/* Mission: The Art of Selection */}
-      <section className="bg-surface-container-low py-20 md:py-24 px-6 md:px-8 relative max-w-[1440px] mx-auto">
+      <section className="bg-surface-container-low py-16 px-4 md:py-32 md:px-8 relative max-w-[1440px] mx-auto">
         <motion.div 
           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}
           className="mb-12 md:mb-16"
@@ -82,7 +82,7 @@ export default function About() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 md:py-24 px-6 md:px-8 bg-surface text-center">
+      <section className="py-16 px-4 md:py-24 md:px-8 bg-surface text-center">
         <motion.div 
           initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
           className="max-w-md mx-auto"

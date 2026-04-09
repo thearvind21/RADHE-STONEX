@@ -19,7 +19,7 @@ export default function Products() {
   };
 
   return (
-    <main className="pt-[88px] pb-24 px-6 md:px-12 max-w-[1600px] mx-auto overflow-hidden">
+    <main className="pb-24 px-4 md:px-12 max-w-[1600px] mx-auto overflow-hidden">
       {/* Editorial Header */}
       <motion.header 
         initial="hidden" animate="visible" variants={fadeUp}
@@ -38,13 +38,13 @@ export default function Products() {
         </div>
       </motion.header>
 
-      {/* Category: Italian Marble */}
-      <section className="mb-24 md:mb-32">
+      {/* Italian Marble Header */}
+      <section className="mb-16 md:mb-24 px-4">
         <motion.div 
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-          className="flex items-center gap-4 mb-12"
+          className="flex items-center gap-4 mb-8 md:mb-12"
         >
-          <h2 className="font-headline text-2xl md:text-3xl text-on-surface">Italian Marble</h2>
+          <h2 className="font-headline text-3xl md:text-3xl text-on-surface leading-tight">Italian Marble</h2>
           <div className="h-[1px] flex-grow bg-gradient-to-r from-outline-variant/40 to-transparent"></div>
           <span className="font-label text-[10px] uppercase tracking-[0.3em] text-primary">Series 01</span>
         </motion.div>

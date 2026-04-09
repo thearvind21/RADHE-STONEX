@@ -29,19 +29,21 @@ function App() {
     <Router>
       <ScrollToTop />
       <div className="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen relative">
-        {/* Global Marble Scrim Overlay */}
-        <div className="fixed inset-0 marble-scrim z-[100]"></div>
+        {/* Global Marble Scrim Overlay - Behind Menu/Navbar but above content */}
+        <div className="fixed inset-0 marble-scrim z-[1] pointer-events-none"></div>
         
         <Navbar />
         
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/product/:id" element={<ProductDetail />} />
-        </Routes>
+        <main className="pt-[var(--navbar-height)] md:pt-24 relative z-0">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
+          </Routes>
+        </main>
         
         <Footer />
         <FloatingWhatsApp />

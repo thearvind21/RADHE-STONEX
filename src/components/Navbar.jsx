@@ -11,8 +11,8 @@ export default function Navbar() {
       ? "font-label text-lg tracking-[0.2em] uppercase transition-colors duration-300 w-full text-center py-4 "
       : "font-label text-[11px] tracking-[0.2em] uppercase transition-colors duration-300 ";
     
-    const activeClass = "text-amber-200 border-b border-amber-200/50 hover:text-amber-100";
-    const inactiveClass = "text-stone-400 hover:text-amber-100";
+    const activeClass = "text-white border-b border-white/50 hover:text-white";
+    const inactiveClass = "text-white/90 hover:text-white";
 
     return location.pathname === path ? baseClass + activeClass : baseClass + inactiveClass;
   };
@@ -26,12 +26,13 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="bg-stone-900/60 backdrop-blur-xl text-amber-200 fixed top-0 left-0 right-0 z-[1001] rounded-none shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-500">
+    <>
+      <header className="bg-stone-900/60 backdrop-blur-xl text-amber-200 fixed top-0 left-0 right-0 z-40 rounded-none shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-500">
       <nav className="flex items-center justify-between px-8 py-6 max-w-full">
         <div className="flex items-center gap-4">
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden material-symbols-outlined text-amber-200 cursor-pointer hover:scale-95 duration-200 z-[1002]"
+            className="md:hidden material-symbols-outlined text-amber-200 cursor-pointer hover:scale-95 duration-200 z-[60]"
           >
             {isOpen ? 'close' : 'menu'}
           </button>
@@ -52,43 +53,45 @@ export default function Navbar() {
           Get Quote
         </button>
       </nav>
-
-      {/* Mobile Nav Overlay */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: '-100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '-100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 top-[88px] bg-stone-950/95 backdrop-blur-2xl z-[1000] flex flex-col items-center justify-center px-8 md:hidden"
-          >
-            <div className="flex flex-col items-center space-y-4 w-full h-full pt-12">
-              {navLinks.map((link) => (
-                <Link 
-                  key={link.path} 
-                  className={getLinkClass(link.path, true)} 
-                  to={link.path}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ))}
-              <div className="pt-8 w-full">
-                <button 
-                  onClick={() => {
-                    setIsOpen(false);
-                    window.open('https://wa.me/91XXXXXXXXXX?text=I%20am%20interested%20in%20your%20premium%20marble%20collections', '_blank');
-                  }}
-                  className="w-full bg-primary text-on-primary py-4 rounded-lg font-label text-sm tracking-[0.2em] uppercase hover:bg-primary-fixed-dim transition-all"
-                >
-                  Get Quote
-                </button>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </header>
+
+    {/* Mobile Nav Overlay - Premium Top-aligned Full-screen */}
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="fixed inset-0 bg-black/95 backdrop-blur-xl z-50 flex flex-col items-center justify-start pt-24 gap-8 px-8 md:hidden overflow-y-auto text-white"
+        >
+          <div className="text-red-500 font-bold">DEBUG: MENU RENDERED</div>
+          <div className="flex flex-col items-center gap-8 w-full mt-10">
+            {navLinks.map((link) => (
+              <Link 
+                key={link.path} 
+                className={getLinkClass(link.path, true)} 
+                to={link.path}
+                onClick={() => setIsOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ))}
+            <div className="pt-8 w-64 pb-20">
+              <button 
+                onClick={() => {
+                  setIsOpen(false);
+                  window.open('https://wa.me/91XXXXXXXXXX?text=I%20am%20interested%20in%20your%20premium%20marble%20collections', '_blank');
+                }}
+                className="w-full bg-primary text-on-primary py-4 rounded-lg font-label text-sm tracking-[0.2em] uppercase hover:bg-primary-fixed-dim transition-all shadow-xl"
+              >
+                Get Quote
+              </button>
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    </>
   );
 }

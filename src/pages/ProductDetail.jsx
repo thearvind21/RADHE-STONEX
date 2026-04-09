@@ -42,7 +42,7 @@ export default function ProductDetail() {
   // Safety logic: Check if id exists
   if (!id) {
     return (
-      <main className="min-h-screen pt-32 px-6 text-center">
+      <main className="min-h-screen px-4 text-center">
         <h2 className="font-headline text-3xl mb-8">Product Not Found</h2>
         <button onClick={() => navigate('/products')} className="bg-primary px-8 py-3 text-on-primary">Back to Collection</button>
       </main>
@@ -67,7 +67,7 @@ export default function ProductDetail() {
   };
 
   return (
-    <main className="min-h-screen bg-background text-on-surface pt-32 pb-20 px-6 md:px-12 max-w-[1440px] mx-auto overflow-hidden">
+    <main className="min-h-screen bg-background text-on-surface pb-20 px-4 md:px-12 max-w-[1440px] mx-auto overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
         {/* Product Image Stage */}
         <motion.div
