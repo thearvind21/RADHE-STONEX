@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useNavigate, Link } from 'react-router-dom';
+import heroImage from "../assets/hero-marble.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -11,12 +12,14 @@ export default function Home() {
   return (
     <main>
       {/* Cinematic Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden px-6 md:px-0">
+      <section className="relative h-screen w-full flex items-center justify-center overflow-hidden px-6 md:px-0 bg-background">
         <div className="absolute inset-0 z-0">
           <img 
             className="w-full h-full object-cover opacity-60 brightness-75 scale-105" 
             alt="Close-up of premium Italian Calacatta marble with dramatic grey and gold veins" 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf_W8ua-ZyBPKbt4nUJ8NzE_qenVQ1IaQSpfK5MLLspNNcm0jkSfY69mWTxgbJ7yd1s_Olee-FJo_xM95lsG1nW2N_MZFcK8dxgah0WzEB1tI3T-mTcOaUAt0SUnfPgnOv0jLZuxnC5dUV5O0on-0_2hT6ttvpebRnekCSCQobTxM7FdJZcc_cs0uWpJX-ReecCRPUieWeXTqx5NDobpbPwto8-i1NuCVlMPMZD4Rht0Yo9Vp5QuN19TsdK9B_-H2yPquIPmvLwwAy"
+            src={heroImage}
+            loading="eager"
+            fetchpriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50 z-10"></div>
         </div>
