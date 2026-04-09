@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useNavigate, Link } from 'react-router-dom';
 import heroImage from "../assets/hero-marble.jpg";
 
 const fadeUp = {
@@ -7,6 +8,7 @@ const fadeUp = {
 };
 
 export default function Home() {
+  const navigate = useNavigate();
   return (
     <main>
       {/* Cinematic Hero Section */}
@@ -35,7 +37,7 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-6 md:pt-8">
               <button
-                onClick={() => window.location.href = '/products'}
+                onClick={() => navigate('/products')}
                 className="bg-primary text-on-primary px-10 py-4 rounded font-label text-sm tracking-[0.1em] uppercase hover:scale-[1.02] transition-transform w-full sm:w-auto"
               >
                 Explore Collection
@@ -143,9 +145,9 @@ export default function Home() {
                 <div className="bg-surface-container/60 backdrop-blur-xl p-6 sm:p-8 border border-outline-variant/10">
                   <h3 className="font-headline text-2xl sm:text-3xl text-on-surface mb-2">{item.title}</h3>
                   <p className="text-on-surface-variant text-xs sm:text-sm mb-4 sm:mb-6 font-light">{item.desc}</p>
-                  <a className="text-primary font-label text-[10px] tracking-[0.2em] uppercase flex items-center gap-2 group-hover:gap-4 transition-all" href="/products">
+                  <Link className="text-primary font-label text-[10px] tracking-[0.2em] uppercase flex items-center gap-2 group-hover:gap-4 transition-all" to="/products">
                     View Selection <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </motion.div>

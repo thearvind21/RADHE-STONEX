@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Footer() {
   return (
     <footer className="bg-stone-950 text-amber-200 w-full py-20 px-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
@@ -20,10 +22,10 @@ export default function Footer() {
       </div>
       <div className="space-y-12 md:text-right">
         <nav className="flex flex-wrap md:justify-end gap-x-12 gap-y-4">
-          <a className="font-label text-[10px] tracking-[0.15em] uppercase text-stone-500 hover:text-stone-300 transition-all" href="/products">Collections</a>
-          <a className="font-label text-[10px] tracking-[0.15em] uppercase text-stone-500 hover:text-stone-300 transition-all" href="/about">Our Quarry</a>
-          <a className="font-label text-[10px] tracking-[0.15em] uppercase text-stone-500 hover:text-stone-300 transition-all" href="/about">Sustainability</a>
-          <a className="font-label text-[10px] tracking-[0.15em] uppercase text-stone-500 hover:text-stone-300 transition-all" href="/contact">Contact</a>
+          <Link className="font-label text-[10px] tracking-[0.15em] uppercase text-stone-500 hover:text-stone-300 transition-all" to="/products">Collections</Link>
+          <Link className="font-label text-[10px] tracking-[0.15em] uppercase text-stone-500 hover:text-stone-300 transition-all" to="/about">Our Quarry</Link>
+          <Link className="font-label text-[10px] tracking-[0.15em] uppercase text-stone-500 hover:text-stone-300 transition-all" to="/about">Sustainability</Link>
+          <Link className="font-label text-[10px] tracking-[0.15em] uppercase text-stone-500 hover:text-stone-300 transition-all" to="/contact">Contact</Link>
         </nav>
         <p className="font-label text-[10px] tracking-[0.15em] uppercase text-stone-500">
           © 2024 RADHE STONEX. ARCHITECTURAL PERMANENCE.

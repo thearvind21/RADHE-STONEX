@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -89,12 +90,12 @@ export default function About() {
           <h2 className="font-headline italic text-2xl md:text-3xl text-white mb-4">Experience the Collection</h2>
           <p className="text-sm text-on-surface-variant mb-10 font-body">From the Carrara of Italy to the Statuario of our homeland, discover a world of stone.</p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <a href="/products" className="bg-primary text-on-primary py-4 px-8 rounded-lg font-label uppercase text-[10px] tracking-widest font-bold transition-transform active:scale-95 block w-full">
+            <Link to="/products" className="bg-primary text-on-primary py-4 px-8 rounded-lg font-label uppercase text-[10px] tracking-widest font-bold transition-transform active:scale-95 block w-full">
               View Collections
-            </a>
-            <a href="/contact" className="text-secondary py-4 px-8 rounded-lg font-label uppercase text-[10px] tracking-widest hover:text-white transition-colors block w-full border border-outline-variant/20 hover:border-primary/30">
+            </Link>
+            <Link to="/contact" className="text-secondary py-4 px-8 rounded-lg font-label uppercase text-[10px] tracking-widest hover:text-white transition-colors block w-full border border-outline-variant/20 hover:border-primary/30">
               Contact an Artisan
-            </a>
+            </Link>
           </div>
         </motion.div>
       </section>
