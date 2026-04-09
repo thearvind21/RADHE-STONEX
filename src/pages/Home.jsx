@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { useNavigate, Link } from 'react-router-dom';
-import heroImage from "../assets/hero-marble.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -12,39 +11,41 @@ export default function Home() {
   return (
     <main>
       {/* Cinematic Hero Section */}
-      <section className="relative h-screen flex items-center overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden px-6 md:px-0">
         <div className="absolute inset-0 z-0">
           <img 
-            src={heroImage} 
-            alt="Premium Marble" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-60 brightness-75 scale-105" 
+            alt="Close-up of premium Italian Calacatta marble with dramatic grey and gold veins" 
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf_W8ua-ZyBPKbt4nUJ8NzE_qenVQ1IaQSpfK5MLLspNNcm0jkSfY69mWTxgbJ7yd1s_Olee-FJo_xM95lsG1nW2N_MZFcK8dxgah0WzEB1tI3T-mTcOaUAt0SUnfPgnOv0jLZuxnC5dUV5O0on-0_2hT6ttvpebRnekCSCQobTxM7FdJZcc_cs0uWpJX-ReecCRPUieWeXTqx5NDobpbPwto8-i1NuCVlMPMZD4Rht0Yo9Vp5QuN19TsdK9B_-H2yPquIPmvLwwAy"
           />
-          <div className="absolute inset-0 bg-black/25 z-[1]"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50 z-10"></div>
         </div>
-        <div className="relative z-10 container mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-[1440px]">
+        <div className="relative z-10 text-center px-4 max-w-5xl">
           <motion.div
-            initial="hidden" animate="visible" variants={fadeUp}
-            className="lg:col-span-8 space-y-6 md:space-y-8"
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            className="space-y-6 md:space-y-0"
           >
-            <div className="inline-block px-4 py-1 border border-primary/30 rounded-full">
-              <p className="text-primary font-label text-[10px] tracking-[0.3em] uppercase">Est. 1994 | Global Sourcing</p>
+            <div className="inline-block mb-6 px-4 py-1 border border-primary/20 rounded-full bg-surface-container-low/70 backdrop-blur-xl">
+              <p className="font-label text-[10px] tracking-[0.3em] uppercase text-primary">The Obsidian Editorial 2024</p>
             </div>
-            <h1 className="text-on-surface font-headline text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[1.1] tracking-tight">
-              Crafted for <span className="text-primary italic">Modern Luxury</span> Spaces
+            
+            <h1 className="font-headline text-5xl md:text-8xl font-bold tracking-tight mb-8 leading-tight text-white">
+              Imported Italian Marble <br/>
+              <span className="italic font-normal bg-gradient-to-br from-[#e9c349] to-[#c5a12a] bg-clip-text text-transparent">That Defines Luxury Living</span>
             </h1>
-            <p className="text-on-surface-variant max-w-xl text-base md:text-xl font-light leading-relaxed">
-              Crafted for those who demand elegance, durability, and timeless beauty. Experience the monolithic weight of architectural permanence.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-6 md:pt-8">
+
+            <div className="flex flex-col md:flex-row gap-6 justify-center mt-12">
               <button
                 onClick={() => navigate('/products')}
-                className="bg-primary text-on-primary px-10 py-4 rounded font-label text-sm tracking-[0.1em] uppercase hover:scale-[1.02] transition-transform w-full sm:w-auto"
+                className="bg-primary text-on-primary px-10 py-4 rounded-lg font-label font-bold uppercase tracking-widest text-xs hover:bg-primary-container transition-all active:scale-95 shadow-xl shadow-primary/10"
               >
                 Explore Collection
               </button>
               <button
-                onClick={() => window.open('https://wa.me/91XXXXXXXXXX?text=I%20am%20interested%20in%20your%20premium%20collections', '_blank')}
-                className="bg-surface-container-highest/40 backdrop-blur-md border border-outline-variant/20 text-on-surface px-10 py-4 rounded font-label text-sm tracking-[0.1em] uppercase hover:bg-surface-container-highest/60 transition-all w-full sm:w-auto"
+                onClick={() => navigate('/contact')}
+                className="bg-surface-container-low/40 backdrop-blur-md border border-outline-variant/30 text-on-surface px-10 py-4 rounded-lg font-label font-bold uppercase tracking-widest text-xs hover:bg-surface-container-high transition-all active:scale-95"
               >
                 Get Quote
               </button>
